@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JingYe</title>
+  <script src="./JingYe.js"></script>
+  <style>
+    @keyframes rotate {
+      0% { transform: scale3d(1,1,1) rotateX(-30deg) rotateY(30deg); }
+      50% { transform: scale3d(20%,20%,20%) rotateX(150deg) rotateY(210deg); }
+      100% { transform: scale3d(1,1,1) rotateX(330deg) rotateY(390deg); }
+    }
+    @keyframes run {
+      to{
+        background-position: -1680px 0;
+      }
+    }
+    @keyframes move {
+      37.5%{
+        transform: translateX(800px) rotateY(0);
+      }
+      50%{
+        transform: translateX(800px) rotateY(180deg);
+      }
+      87.5%{
+        transform: translateX(0) rotateY(180deg);
+      } 
+      100%{
+        transform: translateX(0) rotateY(0);
+      }
+    }
+    .jianBianBackground{
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+    }
+    .jianBianBackground .jianBian{
+      /* position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%); */
+      transition: all 5s;
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+      background-image: linear-gradient(
+        red,
+        orange,
+        yellow
+      );
+    }
+    .jianBianBackground .jianBian:hover{
+      transform: scale(-1);
+    }
+    .jingye{  
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      width: 418px;
+      height: 890px;
+      background-image: url(./Jing/1.jpg);
+      background-size: contain;
+      overflow: hidden;
+    }
+    .jingye .leftTop,
+    .jingye .rightTop,
+    .jingye .leftBottom,
+    .jingye .rightBottom{
+      width: 50%;
+      height: 50%;
+      background-image: url(./Jing/Joker.jpg);
+      background-size: 200% 200%;
+      transition: all 1s;
+    }
+    .jingye .leftBottom{
+      background-position: 0 bottom;
+    }
+    .jingye .rightTop{
+      background-position: right top;
+    }
+    .jingye .rightBottom{
+      background-position: right bottom;
+    }
+    .jingye:hover{
+      cursor: pointer;
+    }
+    .jingye:hover .leftTop{
+      transform: translate(-100%,-100%);
+    }
+    .jingye:hover .leftBottom{
+      transform: translate(-100%,100%);
+    }
+    .jingye:hover .rightTop{
+      transform: translate(100%,-100%);
+    }
+    .jingye:hover .rightBottom{
+      transform: translate(100%,100%);
+    }
+    .threeD{
+      perspective: 1000px;
+    }
+    .threeD .son{
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+      background-color: chocolate;
+      transition: all 0.5s;
+      /* transform-origin: center top; */
+    }
+    .threeD .son:hover{
+      transform: translate3d(0,0,-300px) rotateY(360deg);
+    }
+    .cube{
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(-30deg) rotateY(30deg);
+      margin: 100px auto;
+      width: 200px;
+      height: 200px;
+      /* transition: all 2s; */
+      animation: rotate 2s infinite;
+    }
+    .cube div{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 200px;
+    }
+    .cube .front{
+      background-color: rebeccapurple;
+      transform: translateZ(100px);
+    }
+    .cube .back{
+      background-color: burlywood;
+      transform: translateZ(-100px);
+    }
+    .cube .top{
+      background-color: brown;
+      transform: rotateX(90deg) translateZ(100px);
+    }
+    .cube .bottom{
+      background-color: aquamarine;
+      transform: rotateX(90deg) translateZ(-100px);
+    }
+    .cube .left{
+      background-color: black;
+      transform: rotateY(90deg) translateZ(-100px);
+    }
+    .cube .right{
+      background-color: cadetblue;
+      transform: rotateY(90deg) translateZ(100px);
+    }
+    .cube:hover{
+      animation-play-state: paused;
+    }
+    .role{
+      width: 140px;
+      height: 140px;
+      background-image: url(Pictures/bg.png);
+      animation: 
+        run 1s steps(12) infinite,
+        move 8s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="jingye" onclick="JingYe()">
+    <div class="leftTop"></div>
+    <div class="rightTop"></div>
+    <div class="leftBottom"></div>
+    <div class="rightBottom"></div>
+  </div>
+  <div class="jianBianBackground">
+    <div class="jianBian"></div>
+  </div>
+  <div class="threeD">
+    <div class="son"></div>
+  </div>
+  <div class="cube">
+    <div class="front"></div>
+    <div class="back"></div>
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <div class="role"></div>
+</body>
+</html>
